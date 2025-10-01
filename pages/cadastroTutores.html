@@ -23,57 +23,33 @@
           <img src="/assets/images/logo/logoPatatransparente.png" alt="Logo da Pata">
         </a>
       </div>
-      <h1>Cadastro de Clientes</h1>
+      <h1>Cadastro de Tutores</h1>
     </header>
     <!-- Conteúdo principal -->
     <main>
       <div class="wrapper">
         <!-- Imagem -->
         <div class="pet-image image-cadastro">
-          <img src="/assets/images/administracao/rg_pet.webp" alt="Cão e gato">
+          <img src="/assets/images/caogato/caretasgatoscaes.jpg" alt="Cão e gato">
         </div>
         <!-- Formulário de cadastro -->
         <div class="cadastro-content">
           <div class="bg-form">
             <form id="formCadastro" method="POST">
               <div>
-                <label for="registroPet">Nº do Registro:</label>
-                <input type="text" id="registroPet" placeholder="Ex: 123456" />
+                <label for="nomeCliente">Tutor:</label>
+                <input type="text" id="nomeCliente" placeholder="Informe o nome do Tutor" />
               </div>
               <div>
-                <label for="nomePet">Nome:</label>
-                <input type="text" id="nomePet" placeholder="Insira o nome do pet" />
-              </div>
-              <div>
-                <label for="tipoPet">Tipo:</label>
-                <input type="text" id="tipoPet" placeholder="Ex: cão, gato, peixe, ..." />
-              </div>
-              <div>
-                <label for="idadePet">Idade:</label>
-                <input type="text" id="idadePet" placeholder="Ex: 1 ano" />
-              </div>
-              <div>
-                <label for="racaPelagemPet">Raça/Pelagem:</label>
-                <input type="text" id="racaPelagemPet" placeholder="Informe a raça e pelagem" />
-              </div>
-              <div>
-                <label for="especiePet">Nome:</label>
-                <input type="text" id="especiePet" placeholder="canino ou felino" />
-              </div>
-              <div>
-                <label for="observacoesDoPet">Tipo:</label>
-                <input type="text" id="observacoesDoPet" placeholder="Observações Clínicas" />
-              </div>
-              <div>
-                <label for="nomeCliente">Idade:</label>
-                <input type="text" id="nomeCliente" placeholder="Informe o nome do cliente" />
-              </div>
-              <div>
-                <label for="telefoneWhats">Idade:</label>
+                <label for="telefoneWhats">Informe seu whatsapp:</label>
                 <input type="text" id="telefoneWhats" placeholder="Informe o telefone" />
               </div>
               <div>
-                <label for="enderecoCliente">Idade:</label>
+                <label for="enderecoCliente">Informe seu endereço:</label>
+                <input type="text" id="enderecoCliente" placeholder="Informe o endereço do cliente" />
+              </div>
+              <div>
+                <label for="observacoesCliente">Observações do cliente:</label>
                 <input type="text" id="enderecoCliente" placeholder="Informe o endereço do cliente" />
               </div>
               <div id="btn-envio">
@@ -94,35 +70,23 @@
   <script>
     function cadastrarCliente() {
       // Obtendo os dados dos campos do formulário
-      const registroPet = document.getElementById('registroPet').value;
-      const nomePet = document.getElementById('nomePet').value;
-      const tipoPet = document.getElementById('tipoPet').value;
-      const idadePet = document.getElementById('idadePet').value;
-      const racaPelagemPet = document.getElementById('racaPelagemPet').value;
-      const especiePet = document.getElementById('especiePet').value;
-      const observacoesDoPet = document.getElementById('observacoesDoPet').value;
       const nomeCliente = document.getElementById('nomeCliente').value;
       const telefoneWhats = document.getElementById('telefoneWhats').value;
       const enderecoCliente = document.getElementById('enderecoCliente').value;
+      const observacoesCliente = document.getElementById('observacoesCliente').value;
+
 
       // Validando os campos
-      if (!registroPet || !nomePet || !tipoPet || !idadePet || !racaPelagemPet ||
-        !especiePet || !observacoesDoPet || !nomeCliente || !telefoneWhats || !enderecoCliente) {
+      if (!nomeCliente || !telefoneWhats || !enderecoCliente || !observacoesCliente) {
         alert("Por favor, preencha todos os campos!");
         return;
       }
       // Criando o objeto com os dados do pet
       const petData = {
-        registro: registroPet,
-        nome: nomePet,
-        tipo: tipoPet,
-        idade: idadePet,
-        raca: racaPelagemPet,
-        especie: especiePet,
-        obrservacoes: observacoesDoPet,
         nomecliente: nomeCliente,
         telefone: telefoneWhats,
         endereco: enderecoCliente,
+        observacoes: observacoesCliente
       };
       // Enviando os dados via POST para a API
       fetch('http://localhost:3001/api/pets', {

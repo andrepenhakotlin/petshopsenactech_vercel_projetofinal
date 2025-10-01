@@ -76,38 +76,6 @@ table {
   text-align: center;
 }
 
-.carousel-image {
-  height: 200px; /* ou outro valor adequado ao seu layout */
-  object-fit: cover;
-  object-position: center;
-}
-
-.slide img {
-  width: 100%;         /* ou "auto" para manter proporção */
-  height: auto;        /* mantém a proporção original */
-  object-fit: cover;   /* ou "contain", depende do efeito desejado */
-  display: block;
-}
-
-.carrossel {
-  width: 100%;
-  max-width: 800px;
-  overflow: hidden;
-  position: relative;
-}
-
-.slide {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.carousel-item img {
-  height: 500px;       /* ajuste conforme seu layout */
-  object-fit: cover;   /* ou "contain" */
-}
-
 
 .container {
   display: flex;
@@ -186,13 +154,19 @@ header {
 }
 
 .logo img {
-  max-width: 150px; /* ajuste conforme necessário */
+  max-width: 100px; /* ajuste conforme necessário */
   height: auto;
 }
 
 
 /* Conteúdo principal 
 =====================*/
+.wrapper{
+  margin-top: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 #icone-carrinho {
   width: 40px;
@@ -400,7 +374,7 @@ input{
 /* Espaçamento entre os slides do carrossel */
 .carousel-item img {
   object-fit: cover;
-  height: 800px;
+  height: 400px;
   margin-bottom: 20px; /* espaçamento abaixo das imagens */
   border-radius: 8px; /* opcional: borda arredondada para estética */
 }
@@ -431,6 +405,12 @@ main {
   justify-content: center;
 }
 
+.wrapper {
+  max-width: 1200px;
+  width: 100%;
+  gap: 2rem; /* espaçamento entre os elementos */
+}
+
 .pet-image img {
   max-width: 100%;
   height: auto;
@@ -442,45 +422,13 @@ main {
 }
 
 @media (max-width: 768px) {
- 
-
-  .index-content {
-    flex: none;
-  }
-}
-
-.wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
-  margin-top: 2rem;
-}
-
-.wrapper .pet-image {
-  flex: 1 1 300px;
-  max-width: 400px;
-}
-
-.wrapper .pet-image img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.wrapper .index-content {
-  flex: 1 1 400px;
-  max-width: 600px;
-}
-
-@media (max-width: 768px) {
   .wrapper {
     flex-direction: column;
+    align-items: center;
     text-align: center;
   }
 
-  .wrapper .index-content {
-    max-width: 100%;
+  .index-content {
+    flex: none;
   }
 }
