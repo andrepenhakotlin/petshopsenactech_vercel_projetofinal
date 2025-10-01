@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini Sistema de Cadastro de Pets</title>
+  <!-- Estilos CSS -->
+
+  <!-- Estilos CSS -->
+  <link rel="stylesheet" type="text/css" href="../css/style.css">
+
+  <!-- Bootstrap e FontAwesome para ícones e estilos rápidos -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://kit.fontawesome.com/2c36e9b7b1.js"></script>
+</head>
+
+<body>
+  <div class="geral">
+    <!-- Cabeçalho -->
+    <header>
+      <div class="logo">
+        <a href="index.html">
+          <img src="/assets/images/logo/logoPatatransparente.png" alt="Logo da Pata">
+        </a>
+      </div>
+      <h1>Cadastro de Pets</h1>
+    </header>
+    <!-- Conteúdo principal -->
+    <main>
+      <div class="wrapper">
+        <!-- Imagem -->
+        <div class="pet-image image-cadastro">
+          <img src="/assets/images/caogato/caoGatoFundoTransparente.png" alt="Cão e gato">
+        </div>
+        <!-- Formulário de cadastro -->
+        <div class="cadastro-content">
+          <div class="bg-form">
+            <form id="formCadastro" method="POST">
+              <div>
+                <label for="registroPet">Nº do Registro:</label>
+                <input type="text" id="registroPet" placeholder="Ex: 01" />
+              </div>
+              <div>
+                <label for="nomePet">Nome:</label>
+                <input type="text" id="nomePet" placeholder="Insira o nome" />
+              </div>
+              <div>
+                <label for="tipoPet">Tipo:</label>
+                <input type="text" id="tipoPet" placeholder="Ex: cão, gato, peixe, ..." />
+              </div>
+              <div>
+                <label for="idadePet">Idade:</label>
+                <input type="text" id="idadePet" placeholder="Ex: 1 ano" />
+              </div>
+              <div id="btn-envio">
+                <input type="button" value="Cadastrar" onclick="cadastrarPet()" />
+                <input type="reset" id="cancelar" value="Cancelar" />
+              </div>
+            </form>
+            <!-- Mensagem de status -->
+            <div id="statusMessage" class="mt-3"></div>
+          </div>
+        </div>
+      </div>
+      <!-- /wrapper -->
+    </main>
+  </div>
+  <!-- /geral -->
+
+  <!-- Scripts -->
+  <script>
+    function cadastrarPet() {
+      // Obtendo os dados dos campos do formulário
+      const registroPet = document.getElementById('registroPet').value;
+      const nomePet = document.getElementById('nomePet').value;
+      const tipoPet = document.getElementById('tipoPet').value;
+      const idadePet = document.getElementById('idadePet').value;
+
+      // Validando os campos
+      if (!registroPet || !nomePet || !tipoPet || !idadePet) {
+        alert("Por favor, preencha todos os campos!");
+        return;
+      }
+
+      // Criando o objeto com os dados do pet
+      const petData = {
+        registro: registroPet,
+        nome: nomePet,
+        tipo: tipoPet,
+        idade: idadePet
+      };
+
+      // Enviando os dados via POST para a API
+      
+      fetch('http://localhost:3001/api/pets', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(petData)
+      })
+      .then(response => response.json())
+      .then(data => {
+        // Verificando a resposta da API
+        if (data.success) {
+          document.getElementById('statusMessage').innerHTML = '<div class="alert alert-success">Pet cadastrado com sucesso!</div>';
+          // Limpar os campos após o cadastro
+          document.getElementById('formCadastro').reset();
+        } else {
+          document.getElementById('statusMessage').innerHTML = '<div class="alert alert-danger">Erro ao cadastrar pet. Tente novamente.</div>';
+        }
+      })
+      .catch(error => {
+        document.getElementById('statusMessage').innerHTML = '<div class="alert alert-danger">Erro de conexão. Tente novamente.</div>';
+        console.error('Erro:', error);
+      });
+    }
+  </script>
+
+</body>
+
+</html>

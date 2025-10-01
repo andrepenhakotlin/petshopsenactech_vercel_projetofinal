@@ -1,0 +1,486 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  background:linear-gradient(rgba(229, 241, 48, 0.767),rgba(255,255,255,.52)), url(../images/bg1.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+  width: 100%;
+  min-height: 100vh;
+  overflow-y: auto;
+  font-family: Arial, sans-serif;
+  font-weight: 400;
+  color: #2F1242;
+}
+
+.card {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: none;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+.card img {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  object-fit: cover;
+  height: 180px;
+}
+
+
+/* ID do body que dá permissão a exibição da barra de rolagem na página de consulta */
+#vertical{ 
+  min-height: initial;
+  overflow: auto;
+}
+
+table {
+  margin: 0 auto;
+}
+
+#cabecalho-tabela {
+  background-color: #a2e799;
+  color: #333;
+  font-weight: bold;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+}
+
+.tabela-pets {
+  display: flex;
+  justify-content: left;
+  /* Para centralizar também verticalmente, pode usar: 
+     align-items: center; 
+  */
+}
+
+.tabela-pets table {
+  border-collapse: collapse;
+  width: 80%; /* exemplo de largura */
+}
+
+.tabela-pets th, 
+.tabela-pets td {
+  border: 1px solid #333;
+  padding: 8px;
+  text-align: center;
+}
+
+.carousel-image {
+  height: 200px; /* ou outro valor adequado ao seu layout */
+  object-fit: cover;
+  object-position: center;
+}
+
+.slide img {
+  width: 100%;         /* ou "auto" para manter proporção */
+  height: auto;        /* mantém a proporção original */
+  object-fit: cover;   /* ou "contain", depende do efeito desejado */
+  display: block;
+}
+
+.carrossel {
+  width: 100%;
+  max-width: 800px;
+  overflow: hidden;
+  position: relative;
+}
+
+.slide {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-item img {
+  height: 500px;       /* ajuste conforme seu layout */
+  object-fit: cover;   /* ou "contain" */
+}
+
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+element.style {
+  margin-left: 875px;
+}
+
+p{
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+h1{
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 40px;
+  margin-bottom: 10px;
+}
+
+#titulo-principal {
+  flex: 1;
+  text-align: center;
+  margin: 0;
+  font-style: oblique;
+  color:blue;
+}
+
+.acoes {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Espaço entre o link e o ícone */
+}
+
+
+h2{
+  font-weight: 700;
+  font-size: 18px;
+  margin-top: -15px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.geral {
+  margin: 16px 140px 0px 140px;  
+  min-height: 100vh;
+}
+
+/* Header com logo e nav 
+========================*/
+header {
+  display: flex;
+  justify-content: center;
+  background-color: #f8f8f8; /* Cor de fundo opcional */
+  padding: 20px 0;           /* Espaçamento vertical */
+  width: 100%;               /* Ocupa toda a largura */
+  box-sizing: border-box;    /* Inclui padding na largura total */
+}
+
+.index-content,
+.cadastro-content,
+#consulta-content,
+.pet-image{
+  width: 21%;
+}
+
+.logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px; /* opcional, para dar um pequeno espaço da borda */
+}
+
+.logo img {
+  max-width: 150px; /* ajuste conforme necessário */
+  height: auto;
+}
+
+
+/* Conteúdo principal 
+=====================*/
+
+#icone-carrinho {
+  width: 40px;
+}
+
+.image-index img{
+  width: 68%;
+  height: auto;
+}
+
+.image-cadastro img{
+  width: 98%;
+  height: auto;
+}
+
+.image-consultar img{
+  width: 74%;
+  height: auto;
+}
+
+.index-content span{
+  color: #FD64A7;
+}
+
+.cadastro-content{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.consulta-content ul li{
+  margin-left: 60px;
+}
+
+/* Links das redes sociais na index 
+===================================*/
+.links div{
+  display: flex;
+  align-items: center;
+}
+
+.links i{
+  font-size: 20px;
+  margin-right: 8px;
+}
+
+.links a{
+  margin-right: 30px;
+  color: #2F1242;
+  text-decoration: none;
+}
+
+#link-login {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+
+}.links a:link,.links a:visited{
+  color:#4408eb;
+  font-size: medium;
+}
+
+.links a:hover,
+.links a:active{
+  color: #b048c5;
+}
+/* Formulário de cadastro 
+=========================*/
+.bg-form{
+  width: 300px;
+  padding: 5px 16px;
+  background-color: #2F1242;
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+form div{
+  margin: 16px;
+}
+
+label{
+  display: inline-block;
+  width: 120px;
+  color: #FFF;
+}
+
+input{
+  width: 200px;
+  height: 30px;
+  border-radius: 2px;
+  display: block;
+  margin-top: 2px;
+  padding-left: 10px;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  font-family: 'Baloo 2', cursive;
+  font-weight: 400;
+}
+
+#btn-envio input,
+#consulta-content input{
+  display: inline-block;
+  width: 98px;
+  cursor: pointer;
+  text-transform: uppercase;
+  padding: 0;
+  background-color: #DDCBFD;
+  color: #2F1242;
+  font-weight: 700;
+  border: 0;
+}
+#btn-envio input:hover{
+  background-color: #FFF;
+  color: #2F1242;
+}
+#consulta-content input:hover{
+  background-color: #b048c5;
+  color: #FFF;
+}
+#registroPet::placeholder,
+#nomePet::placeholder,
+#tipoPet::placeholder,
+#idadePet::placeholder{
+  color: #CCC;
+}
+
+
+
+/*////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+@media (max-width: 1212px) {
+  .geral {
+    margin: 10px 100px;  
+  }
+}
+
+
+
+@media (max-width: 768px) {
+  .geral {
+    margin: 10px 20px;  
+  }
+  
+  header{
+    padding: 10px 0px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  header .logo,
+  header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #consulta-content{
+    margin-left: 30px;
+  }
+
+  .index-content,
+  .cadastro-content,
+  #consulta-content,
+  .pet-image{
+    width: 100%;
+  }
+
+  .pet-image {
+    display: none;
+  }  
+}
+
+@media (max-width: 365px) {  
+  header a,
+  label{
+    font-size: 14px;
+  }
+
+  h1{
+    font-size: 36px;
+  }
+
+  .bg-form{
+    width: 280px;
+    padding: 5px 6px;
+  }  
+}
+
+/* Espaçamento ao redor do ícone do carrinho */
+#icone-carrinho {
+  margin-left: 15px;
+}
+
+/* Espaçamento ao redor da logo */
+.logo img {
+  margin: 20px auto;
+  display: block;
+}
+
+/* Espaçamento entre os slides do carrossel */
+.carousel-item img {
+  object-fit: cover;
+  height: 800px;
+  margin-bottom: 20px; /* espaçamento abaixo das imagens */
+  border-radius: 8px; /* opcional: borda arredondada para estética */
+}
+
+/* Imagem da seção principal */
+.pet-image img {
+  max-width: 100%;
+  height: auto;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px; /* opcional */
+}
+
+/* Seção principal com espaçamento interno */
+.index-content {
+  padding: 20px;
+}
+
+/* Se quiser espaçar melhor o container geral */
+.container {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+main {
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.pet-image img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.index-content {
+  flex: 1 1 400px; /* permite que cresça, mas tenha largura mínima */
+}
+
+@media (max-width: 768px) {
+ 
+
+  .index-content {
+    flex: none;
+  }
+}
+
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.wrapper .pet-image {
+  flex: 1 1 300px;
+  max-width: 400px;
+}
+
+.wrapper .pet-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.wrapper .index-content {
+  flex: 1 1 400px;
+  max-width: 600px;
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .wrapper .index-content {
+    max-width: 100%;
+  }
+}

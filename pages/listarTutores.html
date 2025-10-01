@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini Sistema de Cadastro de Pets</title>
+
+  <!-- Estilos CSS -->
+  <link rel="stylesheet" type="text/css" href="../css/style.css">
+
+  <!-- Bootstrap e FontAwesome para ícones e estilos rápidos -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://kit.fontawesome.com/2c36e9b7b1.js"></script>
+</head>
+
+<body id="vertical">
+  <div class="geral">
+    <header>
+      <div class="logo">
+        <a href="index.html"><img src="/assets/images/logo/logoPatatransparente.png"></a>
+      </div>
+      <h1>Pets Cadastrados</h1>
+    </header>
+    <br>
+    <br>
+    <!-- Conteúdo principal do site -->
+    <main>
+      <section class="tabela-pets">
+        <table border="1">
+          <thead>
+            <tr>
+              <th>Registro</th>
+              <th>Nome</th>
+              <th>Tipo</th>
+              <th>Idade</th>
+            </tr>
+          </thead>
+          <tbody id="tabelaPets">
+            <!-- Os dados serão inseridos aqui via JavaScript -->
+          </tbody>
+        </table>
+      </section>
+    </main>
+    <!-- Script para preencher a tabela com os dados da API -->
+    <script>
+      const tabela = document.getElementById("tabelaPets");
+
+      // Função para buscar os dados da API
+      fetch("http://localhost:3000/api/pets")
+        .then(response => response.json()) // Transformar a resposta em JSON
+        .then(pets => {
+          // Preencher a tabela com os dados dos pets
+          pets.forEach(pet => {
+            const linha = document.createElement("tr");
+
+            linha.innerHTML = `
+              <td>${pet.registro}</td>
+              <td>${pet.nome}</td>
+              <td>${pet.tipo}</td>
+              <td>${pet.idade}</td>
+            `;
+
+            tabela.appendChild(linha);
+          });
+        })
+        .catch(error => {
+          console.error("Erro ao carregar os dados:", error);
+        });
+    </script>
+  </div>
+  <!-- /geral -->
+  <!-- <script src="/js/script_versaoII.js"></script> -->
+  <script src="/js/baseDeDadosMySQL.js"></script>
+</body>
+
+</html>

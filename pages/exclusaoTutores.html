@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini Sistema de Cadastro de Pets</title>
+  <!-- Estilos CSS -->
+  <link rel="stylesheet" type="text/css" href="../css/style.css">
+  <!-- Bootstrap e FontAwesome para ícones e estilos rápidos -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://kit.fontawesome.com/2c36e9b7b1.js"></script>
+</head>
+
+<body>
+  <div class="geral">
+    <header>
+      <div class="logo">
+        <a href="index.html"><img src="/assets/images/logo/logoPatatransparente.png" alt="Logo Pata"></a>
+      </div>
+      <h1>Excluir Cadastro</h1>
+    </header>
+    <main>
+      <div class="wrapper">
+        <div class="pet-image image-cadastro">
+          <img src="/assets/images/caogato/caoGatoFundoTransparente.png" alt="Imagem Pet">
+        </div>
+        <div class="cadastro-content">
+          <div class="bg-form">
+            <form action="#">
+              <div>
+                <label for="registroPetExcluir">Nº do Registro:</label>
+                <input type="text" id="registroPetExcluir" placeholder="Digite o número do registro">
+              </div>
+              <div id="btn-envio">
+                <input type="button" value="Excluir" class="" onclick="excluirPet('registroPetExcluir')">
+                <input type="reset" id="cancelar" class="" value="Cancelar" />
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+    <br>
+    <!-- Conteúdo principal do site -->
+    <main>
+      <section class="tabela-pets">
+        <table border="1">
+          <thead>
+            <tr>
+              <th>Registro</th>
+              <th>Nome</th>
+              <th>Tipo</th>
+              <th>Idade</th>
+            </tr>
+          </thead>
+          <tbody id="tabelaPets">
+            <!-- Os dados serão inseridos aqui via JavaScript -->
+          </tbody>
+        </table>
+      </section>
+    </main>
+    <!-- Script para preencher a tabela com os dados do localStorage -->
+    <script>
+  async function carregarTabela() {
+    const tabela = document.getElementById("tabelaPets");
+
+    try {
+      const response = await fetch('http://localhost:3001/api/pets');
+      const pets = await response.json();
+
+      pets.forEach(pet => {
+        const linha = document.createElement("tr");
+        linha.innerHTML = `
+          <td>${pet.registro}</td>
+          <td>${pet.nome}</td>
+          <td>${pet.tipo}</td>
+          <td>${pet.idade}</td>
+        `;
+        tabela.appendChild(linha);
+      });
+    } catch (error) {
+      console.error('Erro ao carregar tabela:', error);
+    }
+  }
+
+  carregarTabela();
+</script>
+
+  </div>
+  <!-- /geral -->
+  <script src="/js/exclusaoPet.js"></script>
+  </div>
+</body>
+
+</html>
