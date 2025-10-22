@@ -1,32 +1,17 @@
-const pool = require('../server/db/mysql'); // Supondo que exportou o pool em db.js
-const path = require('path');
 const express = require('express');
-const fs = require('fs');
-
 const app = express();
-const PORT = process.env.PORT || 3001; // API na 3001; Vite na 3000
-
 const cors = require('cors');
-app.use(cors());
+const mysql = require('mysql2/promise');
 
-// Body parser
+app.use(cors());
 app.use(express.json());
 
-// Auto-carregamento de rotas da pasta server/routes
-const routesDir = path.resolve(__dirname, 'routes');
-if (fs.existsSync(routesDir)) {
-  fs.readdirSync(routesDir)
-    .filter((file) => file.endsWith('.js'))
-    .forEach((file) => {
-      const registerRoutes = require(path.join(routesDir, file));
-      if (typeof registerRoutes === 'function') {
-        registerRoutes(app);
-      }
-    });
-}
-
-app.listen(PORT, () => {
-  console.log(`API rodando em http://localhost:${PORT}`);
+// Configuração do pool MySQL (exemplo)
+const pool = mysql.createPool({
+  host: 'localhost',
+  user: 'seu_usuario',
+  password: 'sua_senha',
+  database: 'seu_banco'
 });
 
 // Adicione essa rota no seu servidor
