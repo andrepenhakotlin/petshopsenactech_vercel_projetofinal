@@ -2,16 +2,16 @@
   "name": "fullstack-pack",
   "version": "1.0.0",
   "private": true,
-  "description": "Starter fullstack simples com Vite + Express (dev local)",
-  "main": "server/server.js",
+  "description": "Sistema de cadastro de pets",
   "scripts": {
-    "dev": "concurrently -k -n api,web -c cyan,magenta \"cross-env PORT=3001 nodemon server/server.js\" \"vite --open\""
+    "dev": "concurrently -k -n api,web -c cyan,magenta \"cross-env PORT=3001 nodemon server/server.js\" \"vite --open\"",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.21.2",
-    "mysql2": "^3.15.0",
-    "node.js": "^0.0.1-security"
+    "mysql2": "^3.15.0"
   },
   "devDependencies": {
     "concurrently": "^8.2.2",

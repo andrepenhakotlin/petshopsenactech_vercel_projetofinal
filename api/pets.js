@@ -1,3 +1,5 @@
+import pool from './db.js';
+
 let pets = [
   { registro: '1', nome: 'Bob', tipo: 'Cachorro', idade: 4 },
   { registro: '2', nome: 'Miau', tipo: 'Gato', idade: 2 },

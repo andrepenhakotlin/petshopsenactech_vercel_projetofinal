@@ -13,7 +13,7 @@ function preenchimentoCampos(registro, nome, tipo, idade) {
   const pet = { registro, nome, tipo, idade };
 
   // Enviar para o servidor
-  fetch("http://localhost:3000/api/pets", {
+  fetch("/api/pets"), {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -43,7 +43,8 @@ function excluirPet(idCampo) {
   }
 
   // Enviar para o servidor
-  fetch(`http://localhost:3000/api/pets/${registro}`, {
+  fetch("/api/pets")
+  fetch(`/api/pets/${registro}`, {
     method: "DELETE",
   })
     .then((response) => response.json())
@@ -64,7 +65,7 @@ function atualizarTabela() {
   const tabela = document.getElementById("tabelaPets");
   tabela.innerHTML = ""; // Limpa a tabela
 
-  fetch("http://localhost:3000/api/pets")
+  fetch("/api/pets")
     .then((response) => response.json())
     .then((pets) => {
       pets.forEach((pet) => {

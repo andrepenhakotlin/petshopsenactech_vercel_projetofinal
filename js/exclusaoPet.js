@@ -11,7 +11,7 @@ async function excluirPet(inputId) {
   if (!confirmacao) return;
 
   try {
-    const response = await fetch(`http://localhost:3001/api/pets/${registro}`, {
+    const response = await fetch(`/api/pets/${registro}`, {
       method: 'DELETE'
     });
 
